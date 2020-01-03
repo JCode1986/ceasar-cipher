@@ -16,10 +16,10 @@
 ## Architecture
 
 ## Change Log
-01-02-2020 3:00pm - Initial Commit
-01-02-2020 10:48pm - Added input functionality for message and key
-01-03-2020 12:40am - Added edge case if key number input is over 26
-01-03-2020 12:48am - Fixed start function
+* 01-02-2020 3:00pm - Initial Commit
+* 01-02-2020 10:48pm - Added input functionality for message and key
+* 01-03-2020 12:40am - Added edge case if key number input is over 26
+* 01-03-2020 12:48am - Fixed start function
 
 ## Reference
 https://inventwithpython.com/chapter14.html

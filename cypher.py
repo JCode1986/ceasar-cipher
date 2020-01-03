@@ -1,9 +1,6 @@
 
 def encrypt(message, key):
     encrypted_message = ''
-    
-    if key > 26:
-        return 'Enter a number from 1 - 26'
 
     for char in message:
         
@@ -34,33 +31,33 @@ def decrypt(encoded, key):
     return encrypt(encoded, -key)
 
 def encrypt_input():
-    while True:
-        e_message = input('\nEnter message to encrypt: ')
+    e_message = input('\nEnter message to encrypt: ')
+    e_key = int(input('\nEnter key number from 1 - 26: '))
+    
+    while e_key > 26:
         e_key = int(input('\nEnter key number from 1 - 26: '))
-        if e_key < 26:
-            return f'\nYour encrypted message is =====> {encrypt(e_message, e_key)}'
-        else:
-            e_key = int(input('\nEnter key number from 1 - 26: '))
-            return f'\nYour encrypted message is =====> {encrypt(e_message, e_key)}'
+
+    return f'\nYour encrypted message is =====> {encrypt(e_message, e_key)}'
+
 
 
 def decrypt_input():
-    while True:
-        d_message = input('\nEnter message to decrypt: ')
+    d_message = input('\nEnter message to decrypt: ')
+    d_key = int(input('\nEnter key number from 1 - 26: '))
+
+    while d_key > 26:
         d_key = int(input('\nEnter key number from 1 - 26: '))
-        if d_key < 26:
-            return f'\nYour decrypted message is =====> {decrypt(d_message, d_key)}'
-        else:
-            d_key = int(input('\nEnter key number from 1 - 26: '))        
-            return f'\nYour decrypted message is =====> {decrypt(d_message, d_key)}'
+
+    return f'\nYour decrypted message is =====> {decrypt(d_message, d_key)}'       
 
 def start():
     question = input('\nEncrpyt (e) or Decrypt (d) a message? ')
     if question == 'e':
         return encrypt_input()
     if question == 'd':
-        return decrypt_input()   
-    start()
+        return decrypt_input() 
+    # else:  
+    #     start()
 
 if __name__ == "__main__":
     while True:

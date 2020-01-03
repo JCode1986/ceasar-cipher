@@ -1,15 +1,11 @@
 
-def encrypt(word, key):
-    encrypted_word = ''
+def encrypt(message, key):
+    encrypted_message = ''
     
     if key > 26:
-        return 'Enter a integer from 1 - 26'
+        return 'Enter a number from 1 - 26'
 
-    for char in word:
-
-        #isalpha() returns boolean if character is a letter
-        if not char.isalpha() and char is not ' ':
-            return 'Enter letters of the Alphabet'
+    for char in message:
         
         if char.isalpha():
 
@@ -28,19 +24,44 @@ def encrypt(word, key):
                     unicode_num += 26
 
             #chr() returns a character from a string 
-            encrypted_word += chr(unicode_num)
+            encrypted_message += chr(unicode_num)
         else:
-            encrypted_word += char
+            encrypted_message += char
 
-    return encrypted_word
+    return encrypted_message
 
 def decrypt(encoded, key):
     return encrypt(encoded, -key)
 
+def encrypt_input():
+    while True:
+        e_message = input('\nEnter message to encrypt: ')
+        e_key = int(input('\nEnter key number from 1 - 26: '))
+        if e_key < 26:
+            return f'\nYour encrypted message is =====> {encrypt(e_message, e_key)}'
+        else:
+            e_key = int(input('\nEnter key number from 1 - 26: '))
+            return f'\nYour encrypted message is =====> {encrypt(e_message, e_key)}'
+
+
+def decrypt_input():
+    while True:
+        d_message = input('\nEnter message to decrypt: ')
+        d_key = int(input('\nEnter key number from 1 - 26: '))
+        if d_key < 26:
+            return f'\nYour decrypted message is =====> {decrypt(d_message, d_key)}'
+        else:
+            d_key = int(input('\nEnter key number from 1 - 26: '))        
+            return f'\nYour decrypted message is =====> {decrypt(d_message, d_key)}'
+
+def start():
+    question = input('\nEncrpyt (e) or Decrypt (d) a message? ')
+    if question == 'e':
+        return encrypt_input()
+    if question == 'd':
+        return decrypt_input()   
+    start()
 
 if __name__ == "__main__":
-    word_to_encrypt = encrypt('aaaaaazZ Testing one two', 3)
-    word_to_decode = decrypt('ddddddcC Whvwlqj rqh wzr', 3)
-    print(word_to_encrypt)
-    print(word_to_decode)
-
+    while True:
+        print(start())

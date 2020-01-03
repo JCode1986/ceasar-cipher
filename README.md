@@ -17,6 +17,7 @@
 
 ## Change Log
 01-02-2020 3:00pm - Initial Commit
+01-02-2020 10:48pm - Added input functionality for message and key
 
 ## Reference
 https://inventwithpython.com/chapter14.html
